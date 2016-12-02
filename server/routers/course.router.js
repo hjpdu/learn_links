@@ -52,6 +52,16 @@ router.put('/courses/:id', function(req, res){
     });
   });
 });
-router.delete('/courses/:id', function(req,res){});
-
+router.delete('/courses/:id', function(req,res){
+  Course.findOneAndRemove({_id: req.params.id}, function(err, deletedCourse){
+    if(err){
+      return res.status(500).json({
+        msg: err
+      });
+    }
+    return res.status(200).json({
+      msg: deletedCourse
+    });
+  });
+});
 module.exports = router;
