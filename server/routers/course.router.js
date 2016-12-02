@@ -14,7 +14,18 @@ router.get('/courses', function(req, res){
     });
   });
 });
-router.get('courses/:id', function(req, res){});
+router.get('/courses/:id', function(req, res){
+  Course.find({_id: req.params.id}, function(err, course){
+    if(err){
+      return res.status(500).json({
+        msg: err
+      });
+    }
+    return res.status(200).json({
+      course: course
+    });
+  });
+});
 router.post('/courses', function(req, res){
   var course = new Course(req.body);
   course.postDate = new Date();
