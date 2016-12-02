@@ -40,7 +40,18 @@ router.post('/courses', function(req, res){
     });
   });
 });
-router.put('/courses/:id', function(req, res){});
+router.put('/courses/:id', function(req, res){
+  Course.findOneAndUpdate({_id: req.params.id}, req.body, function(err, oldCourse){
+    if(err){
+      return res.status(500).json({
+        msg: err
+      });
+    }
+    return res.status(201).json({
+      msg: oldCourse
+    });
+  });
+});
 router.delete('/courses/:id', function(req,res){});
 
 module.exports = router;
