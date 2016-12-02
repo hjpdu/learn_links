@@ -16,7 +16,7 @@ mongoose.connect(mongoURI);
 server.get('/', function(req, res){
   res.sendFile('public/html/index.html', {root:__dirname});
 });
-server.use('courseRouter');
+server.use(courseRouter);
 
 server.listen(port, function(){
   console.log('Now listening on port...', port);
