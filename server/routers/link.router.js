@@ -9,6 +9,9 @@ router.get('/links', function(req, res){
         msg: err
       });
     }
+    return res.status(200).json({
+      links:links
+    });
   });
 });
 router.post('/links',function(req, res){});
