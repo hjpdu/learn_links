@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var linkSchema = new Schema({
-  course:{
-    type: Schema.Types.ObjectId, ref: 'Course'
+  _course:{
+    type: Number, ref: 'Course'
   },
   step:{
     type: Number,
@@ -21,6 +21,10 @@ var linkSchema = new Schema({
   },
   vid:{
     type: String
+  },
+  postDate:{
+    type: Date,
+    required: true
   }
 
 });

@@ -14,7 +14,10 @@ router.get('/links', function(req, res){
     });
   });
 });
-router.post('/links',function(req, res){});
+router.post('/links',function(req, res){
+  var link = new Link(req.body);
+  link.postDate = new Date();
+});
 router.put('/links/:id', function(req, res){});
 router.delete('/links/:id', function(req, res){});
 
