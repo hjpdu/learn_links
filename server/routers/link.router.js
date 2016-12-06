@@ -24,7 +24,7 @@ router.post('/links',function(req, res){
       });
     }
     return res.status(200).json({
-      msg: 'Nice. Your link has been added to the course!'
+      msg: 'Nice! Your link has been added to the course.'
     });
   });
 });

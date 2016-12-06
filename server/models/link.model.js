@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var linkSchema = new Schema({
   _course:{
-    type: Number, ref: 'Course'
+    type: Schema.ObjectId, ref: 'Course'
   },
   step:{
     type: Number,
